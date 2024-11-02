@@ -71,7 +71,7 @@ The `data/` folder includes the database and the pretrained parameters of the ne
 You can also run your own experiments for the implemented datasets by setting custom parameters manually. Several training examples can be found in the `executables/` folder. The manually trained parameters and output plots are saved in the `outputs/` folder.
 
 ```bash
-python main.py --train --n_hidden 2 --dim_hidden 150 --passes 12 --max_epoch 1500 --miles 400 700 900 1200
+python main.py --train --n_hidden 2 --dim_hidden 150 --passes 12 --max_epoch 3000
 ```
 
 General Arguments:
