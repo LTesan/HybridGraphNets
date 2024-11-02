@@ -109,7 +109,7 @@ Various 3D renderings showing the model's time evolution, along with additional 
 <div>
     <figure style="position: relative; display: inline-block;">
         <img src="/outputs/renders/mesh_comparison_sim_86.png" width="650">
-        <figcaption style="position: absolute; top: 0; left: 0; width: 100%; font-size: 0.8em; color: rgba(255, 255, 255, 0.7); text-align: center; background-color: rgba(0, 0, 0, 0.5); padding: 5px;">
+        <figcaption style="position: absolute; bottom: 10px; left: 0; width: 100%; font-size: 0.6em; color: rgba(255, 255, 255, 0.7); text-align: center; background-color: rgba(0, 0, 0, 0.5); padding: 5px;">
             Final frame comparison of the 86th test simulation, with the color bar indicating displacement magnitude in meters.
         </figcaption>
     </figure>
@@ -118,9 +118,10 @@ Various 3D renderings showing the model's time evolution, along with additional 
 <div>
     <figure style="position: relative; display: inline-block;">
         <img src="/outputs/renders/vm_render_86.gif" width="650">
-        <figcaption style="position: absolute; top: 0; left: 0; width: 100%; font-size: 0.8em; color: rgba(255, 255, 255, 0.7); text-align: center; background-color: rgba(0, 0, 0, 0.5); padding: 5px;">
+        <figcaption style="position: absolute; bottom: 10px; left: 0; width: 100%; font-size: 0.6em; color: rgba(255, 255, 255, 0.7); text-align: center; background-color: rgba(0, 0, 0, 0.5); padding: 5px;">
             Rendering of the same test simulation, illustrating the evolution of Von Mises stress through the color scale.
         </figcaption>
     </figure>
 </div>
+
 
