@@ -10,26 +10,32 @@
 </div>
 
 ## Introduction
-This GitHub repository hosts a integration of biomecanical thermodynamics with graph neural networks (GNNs) to power a cutting-edge hepatic digital twin. Our project represents a fusion of computational biology, thermodynamics principles, and advanced machine learning techniques to simulate and understand the intricate dynamics of hepatic systems.
+This GitHub repository hosts a integration of biomecanical thermodynamics with graph neural networks (GNNs) to power a cutting-edge hepatic digital twin. Our project represents a fusion of computational biology, thermodynamics principles, and advanced machine learning techniques to simulate and understand the intricate dynamics of an hepatic visco-hyperelastic tissue.
 
 <div align="center">
 <img src="/resources/liverModel.png" width="450">
 </div>
 
-We introduce an advanced deep learning approach for forecasting the time-based changes in dissipative dynamic systems. Our method leverages geometric and physic biases to enhance accuracy and adaptability in our predictive model. To incorporate geometric insights, we employ Graph Neural Networks, enabling a non-Euclidean geometrical framework with permutation invariant node and edge updates. Additionally, we enforce a thermodynamic bias by training the model to recognize the GENERIC structure of the problem, extending beyond the traditional Hamiltonian formalism to predict a broader range of non-conservative dynamics.
+We introduce an advanced deep learning approach for forecasting the time-based changes in a dissipative dynamic system. Our method leverages geometric and physic biases to enhance accuracy and adaptability in our predictive model. To incorporate geometric insights, we employ Graph Neural Networks, enabling a non-Euclidean multi-graph framework with permutation invariant node and edge updates. Additionally, we enforce a thermodynamic bias by training the model to recognize the GENERIC structure of the problem, extending beyond the traditional Hamiltonian formalism to predict a broader range of non-conservative dynamics.
+
+The database consists of 760 simulations across 4 different geometries and meshes, ranging between 450 and 700 nodes. For testing purposes, three additional datasets are defined. The primary one, labeled **extra**, represents 190 simulations in an untrained geometry. The **test** set extends this inference to 33 simulations within one of the previously seen geometries. Lastly, the **train** set is a partition of the training data used to compare performance during the rollout.
 
 <div align="center">
-<img src="/resources/TIGNNs_model.png" width="450">
+<img src="/resources/Gen.png" width="450">
 </div>
 
-Here, you'll find a comprehensive collection of code, models, and resources that drive our Thermodynamics-informed Graph Neural Networks (TIGNNs) framework.
+Here, you'll find a comprehensive collection of code, models, renders and resources that drive our hybrid GNN framework.
 
 For more information, please refer to the following:
 
 - Tesán, Lucas, González, David and Cueto, Elías.
 
-Original arquitecture:
+References:
 - Hernández, Quercus and Badías, Alberto and Chinesta, Francisco and Cueto, Elías. "[Thermodynamics-informed graph neural networks](https://ieeexplore.ieee.org/document/9787069)." IEEE Transactions on Artificial Intelligence (2022).
+- Tobias Pfaff, Meire Fortunato, Alvaro Sanchez-Gonzalez, and Peter W. Battaglia. Learning mesh-based simulation
+with graph networks, 2021.
+- Alicia Tierz, Iciar Alfaro, David González, Francisco Chinesta, and Elías Cueto. Graph neural networks informed
+locally by thermodynamics. arXiv preprint arXiv:2405.13093, May 2024.
 
 ## Setting it up
 
@@ -37,7 +43,7 @@ First, clone the project.
 
 ```bash
 # clone project
-git clone https://github.com/LucasUnizar/TIGNN_NID.git
+git clone https://github.com/LucasUnizar/HybridGraphNets.git
 cd MeshGraps_NID
 ```
 
@@ -55,7 +61,7 @@ pip install numpy scipy matplotlib torch torch-geometric torch-scatter
 The results of the proyect can be reproduced with the following scripts, found in the `executables/` folder.
 
 ```bash
-python main.py --n_hidden 2 --dim_hidden 150 --passes 12 --sim 0 --node_num 30 --inference_info
+python main.py --n_hidden 2 --dim_hidden 250 --passes 12
 ```
 
 The `data/` folder includes the database and the pretrained parameters of the networks. The resulting time evolution of the state variables is plotted and saved in .gif format in a generated `outputs/` folder.
@@ -74,9 +80,7 @@ General Arguments:
 |---------------------------| ------------------------------------------------- |------------------------------------------------------ |
 | `--train`                 | Train mode                                        | `True`, `False`                                       |
 | `--gpu`                   | Enable GPU acceleration                           | `True`, `False`                                       |
-| `--output_dir`            | Output data directory                             | Default: `output`                                     |
-| `--plot_sim`              | Plot a test simulation                            | `True`, `False`                                       |
-| `--inference_info`        | Plot inference info                               | `True`, `False`                                       |
+| `--pretrained`            | Takes pretrained weights fron 'best_model' file   | `True`, `False`                                       |
 
 Training Arguments:
 
@@ -86,36 +90,25 @@ Training Arguments:
 | `--dim_hidden`            | Dimension of hidden layers                        | Default: `150`                                        |
 | `--passes`                | Number of message passing blocks                  | Default: `12`                                         |
 | `--lr`                    | Learning rate                                     | Default: `1e-4`                                       |
-| `--noise_cons`            | Variance of the constant training noise           | Default: `0`                                          |
-| `--noise_prop`            | Variance of the proportional training noise       | Default: `0`                                          |
+| `--noise_var`             | Variance of the constant training noise           | Default: `[0, 0]`                                     |
 | `--batch_size`            | Training batch size                               | Default: `2`                                          |
 | `--max_epoch`             | Maximum number of training epochs                 | Default: `1500`                                       |
-| `--miles`                 | Learning rate scheduler milestones                | Default: `700 1000`                                   |
-| `--gamma`                 | Learning rate scheduler decay                     | Default: `5e-1`                                       |
-| `--lambda_d`              | Data loss weight                                  | Default: `20`                                         |
-| `--node_num`              | Node selection for plots                          | Default: `0`                                          |
-| `--sim`                   | Simulation selection for plots                    | Default: `0`                                          |
+| `--lambda_d`              | Physics loss weight                               | Default: `5`                                          |
 
 # Metrics and evaluation
 ## Boxplots
 Relative error evaluatioón as boxplot for every pseudo-time during inference on test set:
 
 <div>
-<img src="/outputs/test_statistics/boxplot.png" width="700">
+<img src="/outputs/test_statistics/Test/Test_Unseen_boxplot.png" width="700">
 </div>
 
 ## 3D Representation and comparisons
 Different three-dimensional representations of the time evolution of the model are also drawn comparing both the inference of the network and its ground truth:
 <div>
-<img src="/outputs/test_statistics/TestLiver_check.gif" width="650">
+<img src="/outputs/renders/mesh_comparison_sim_44.png" width="650">
 </div>
 Furthermore, a relative nodal error is calculated in a manner similar to the previous representation.
 <div>
-<img src="/outputs/test_statistics/Liver_error.gif" width="850">
-</div>
-
-## Rollout visualization
-Finally, a comparative plot between the ground thruth and the network prediction during the time evolution for the selected node.
-<div>
-<img src="/outputs/model_check/features_check.png" width="4750">
+<img src="/outputs/render/vm_render_44.gif" width="850">
 </div>
