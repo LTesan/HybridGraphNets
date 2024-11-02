@@ -100,15 +100,15 @@ Training Arguments:
 Relative error evaluatioón as boxplot for every pseudo-time during inference on test set:
 
 <div>
-<img src="/outputs/test_statistics/Test/Test_Unseen_boxplot.png" width="700">
+<img src="/outputs/test_statistics/Test/Test_Unseen_boxplot.png" width="300">
 </div>
 
 ## 3D Representation and comparisons
 Different three-dimensional representations of the time evolution of the model are also drawn comparing both the inference of the network and its ground truth:
 <div>
-<img src="/outputs/renders/mesh_comparison_sim_44.png" width="650">
+<img src="/outputs/renders/mesh_comparison_sim_44.png" width="550">
 </div>
 Furthermore, a relative nodal error is calculated in a manner similar to the previous representation.
 <div>
-<img src="/outputs/render/vm_render_44.gif" width="850">
+<img src="/outputs/renders/vm_render_44.gif" width="550">
 </div>
