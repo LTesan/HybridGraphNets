@@ -107,8 +107,15 @@ Relative error evaluatioón as boxplot for every pseudo-time during inference on
 Various 3D renderings showing the model's time evolution, along with additional images to compare the final frame inference:
 
 <div>
-<img src="/outputs/renders/mesh_comparison_sim_86.png" width="650">
+    <figure>
+        <img src="/outputs/renders/mesh_comparison_sim_86.png" width="650">
+        <figcaption>Final frame comparison of the 86th test simulation, with the color bar indicating displacement magnitude in meters.</figcaption>
+    </figure>
 </div>
+
 <div>
-<img src="/outputs/renders/vm_render_86.gif" width="650">
+    <figure>
+        <img src="/outputs/renders/vm_render_86.gif" width="650">
+        <figcaption>Rendering of the same test simulation, illustrating the evolution of Von Mises stress through the color scale.</figcaption>
+    </figure>
 </div>
