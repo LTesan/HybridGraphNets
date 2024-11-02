@@ -105,10 +105,34 @@ Relative error evaluatioón as boxplot for every pseudo-time during inference on
 
 ## 3D Representation and comparisons
 Different three-dimensional representations of the time evolution of the model are also drawn comparing both the inference of the network and its ground truth:
-<div>
-<img src="/outputs/renders/mesh_comparison_sim_44.png" width="550">
+<style>
+.container {
+  display: flex;
+  gap: 20px; /* Espacio entre los elementos */
+}
+
+.container div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img {
+  width: 550px;
+}
+</style>
+
+<div class="container">
+  <!-- Columna de la izquierda -->
+  <div>
+    <img src="/outputs/renders/mesh_comparison_sim_86.png" alt="Imagen original">
+    <img src="/outputs/renders/vm_render_86.gif" alt="GIF original">
+  </div>
+
+  <!-- Columna de la derecha (imágenes originales) -->
+  <div>
+    <img src="/outputs/renders/mesh_comparison_sim_44.png" alt="Imagen original">
+    <img src="/outputs/renders/vm_render_44.gif" alt="GIF original">
+  </div>
 </div>
-Furthermore, a relative nodal error is calculated in a manner similar to the previous representation.
-<div>
-<img src="/outputs/renders/vm_render_44.gif" width="550">
-</div>
+
