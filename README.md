@@ -96,7 +96,7 @@ Training Arguments:
 | `--lambda_d`              | Physics loss weight                               | Default: `5`                                          |
 
 # Metrics and evaluation
-## Boxplots
+## Inference performance
 Relative error evaluatioón as boxplot for every pseudo-time during inference on test set:
 
 <div>
