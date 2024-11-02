@@ -100,15 +100,15 @@ Training Arguments:
 Relative error evaluatioón as boxplot for every pseudo-time during inference on test set:
 
 <div>
-<img src="/outputs/test_statistics/Test/Test_Unseen_boxplot.png" width="300">
+<img src="/outputs/test_statistics/Test/Test_Unseen_boxplot.png" width="250">
 </div>
 
 ## 3D Representation and comparisons
 Various 3D renderings showing the model's time evolution, along with additional images to compare the final frame inference:
 
 <div>
-<img src="/outputs/renders/mesh_comparison_sim_86.png" width="550">
+<img src="/outputs/renders/mesh_comparison_sim_86.png" width="650">
 </div>
 <div>
-<img src="/outputs/renders/vm_render_86.gif" width="550">
+<img src="/outputs/renders/vm_render_86.gif" width="650">
 </div>
