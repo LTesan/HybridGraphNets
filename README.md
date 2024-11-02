@@ -21,7 +21,7 @@ We introduce an advanced deep learning approach for forecasting the time-based c
 The database consists of 760 simulations across 4 different geometries and meshes, ranging between 450 and 700 nodes. For testing purposes, three additional datasets are defined. The primary one, labeled **extra**, represents 190 simulations in an untrained geometry. The **test** set extends this inference to 33 simulations within one of the previously seen geometries. Lastly, the **train** set is a partition of the training data used to compare performance during the rollout.
 
 <div align="center">
-<img src="/resources/Gen.png" width="450">
+<img src="/resources/Gen.png" width="850">
 </div>
 
 Here, you'll find a comprehensive collection of code, models, renders and resources that drive our hybrid GNN framework.
@@ -104,35 +104,11 @@ Relative error evaluatioón as boxplot for every pseudo-time during inference on
 </div>
 
 ## 3D Representation and comparisons
-Different three-dimensional representations of the time evolution of the model are also drawn comparing both the inference of the network and its ground truth:
-<style>
-.container {
-  display: flex;
-  gap: 20px; /* Espacio entre los elementos */
-}
+Various 3D renderings showing the model's time evolution, along with additional images to compare the final frame inference:
 
-.container div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-img {
-  width: 550px;
-}
-</style>
-
-<div class="container">
-  <!-- Columna de la izquierda -->
-  <div>
-    <img src="/outputs/renders/mesh_comparison_sim_86.png" alt="Imagen original">
-    <img src="/outputs/renders/vm_render_86.gif" alt="GIF original">
-  </div>
-
-  <!-- Columna de la derecha (imágenes originales) -->
-  <div>
-    <img src="/outputs/renders/mesh_comparison_sim_44.png" alt="Imagen original">
-    <img src="/outputs/renders/vm_render_44.gif" alt="GIF original">
-  </div>
+<div>
+<img src="/outputs/renders/mesh_comparison_sim_86.png" width="550">
 </div>
-
+<div>
+<img src="/outputs/renders/vm_render_86.gif" width="550">
+</div>
