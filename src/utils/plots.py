@@ -26,7 +26,7 @@ def plot_3D(z_net, z_gt, n, save_dir = 'outputs/test_statistics/', name='Liver_a
     fig = plt.figure(figsize=(10, 8))
     ax1 = fig.add_subplot(1, 2, 1, projection='3d')
     ax2 = fig.add_subplot(1, 2, 2, projection='3d')
-    ax1.set_title('Data Driven GNN', fontsize=18, fontfamily='serif'), ax1.grid()
+    ax1.set_title('Hybrid GNN', fontsize=18, fontfamily='serif'), ax1.grid()
     ax1.set_xlabel('X'), ax1.set_ylabel('Y'), ax1.set_zlabel('Z')
     ax1.view_init(elev=20, azim=40)
     ax2.set_title('Ground Truth', fontsize=18, fontfamily='serif'), ax2.grid()
@@ -101,7 +101,7 @@ def plot_3D(z_net, z_gt, n, save_dir = 'outputs/test_statistics/', name='Liver_a
         ax2.set_yticklabels([])
         ax2.set_zticklabels([])
         # Set title and labels
-        ax1.set_title('Data Driven GNN', fontsize=18, fontfamily='serif'), ax1.grid()
+        ax1.set_title('Hybrid GNN', fontsize=18, fontfamily='serif'), ax1.grid()
         ax1.set_xlabel('X'), ax1.set_ylabel('Y'), ax1.set_zlabel('Z')
         ax2.set_title('Ground Truth', fontsize=18, fontfamily='serif'), ax2.grid()
         ax2.set_xlabel('X'), ax2.set_ylabel('Y'), ax2.set_zlabel('Z')
@@ -139,7 +139,7 @@ def plot_connectivity_3D(z_net, z_gt, n, edge_index_list, save_dir='outputs/test
     # Plot initialization
     fig = plt.figure(figsize=(10, 8))
     ax1 = fig.add_subplot(1, 1, 1, projection='3d')
-    ax1.set_title('Data Driven GNN', fontsize=18, fontfamily='serif')
+    ax1.set_title('Hybrid GNN', fontsize=18, fontfamily='serif')
     ax1.set_xlabel('X'), ax1.set_ylabel('Y'), ax1.set_zlabel('Z')
     ax1.view_init(elev=20, azim=40)
     # Delete ticks
@@ -195,7 +195,7 @@ def plot_connectivity_3D(z_net, z_gt, n, edge_index_list, save_dir='outputs/test
         src, dest = edge_index_list[snap].cpu().numpy()
         
         # Set title and labels
-        ax1.set_title('Data Driven GNN', fontsize=18, fontfamily='serif')
+        ax1.set_title('Hybrid GNN', fontsize=18, fontfamily='serif')
         ax1.set_xlabel('X'), ax1.set_ylabel('Y'), ax1.set_zlabel('Z')
 
         # Bounding box

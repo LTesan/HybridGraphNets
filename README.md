@@ -56,12 +56,36 @@ pip install numpy scipy matplotlib torch torch-geometric torch-scatter
 
 ## How to run the code  
 
+### Setting Up `wandb` for Experiment Tracking
+
+[Weights & Biases](https://wandb.ai/) (`wandb`) is a tool for tracking machine learning experiments, visualizing metrics, and organizing projects. This guide will walk you through initializing and registering your project with `wandb`.
+
+### Installation
+
+To get started, ensure `wandb` is installed in your environment. You can install it via pip:
+
+```bash
+pip install wandb
+```
+
+Before using WandB, authenticate by logging in. This is usually done only once on a machine or when starting a new session.
+
+```bash
+wandb.login()
+```
+
+The model initialization will connect to a project and assign a name to the execution. What is fully implemented in the solver, taking the arguments passed from the main.
+
+```bash
+wandb.init(...)
+```
+
 ### Test pretrained nets
 
 The results of the proyect can be reproduced with the following scripts, found in the `executables/` folder.
 
 ```bash
-python main.py --n_hidden 2 --dim_hidden 250 --passes 12
+python main.py --dim_hidden 250 --passes 12
 ```
 
 The `data/` folder includes the database and the pretrained parameters of the networks. The resulting time evolution of the state variables is plotted and saved in .gif format in a generated `outputs/` folder.
@@ -71,8 +95,9 @@ The `data/` folder includes the database and the pretrained parameters of the ne
 You can also run your own experiments for the implemented datasets by setting custom parameters manually. Several training examples can be found in the `executables/` folder. The manually trained parameters and output plots are saved in the `outputs/` folder.
 
 ```bash
-python main.py --train --n_hidden 2 --dim_hidden 150 --passes 12 --max_epoch 3000
+python main.py --train --dim_hidden 250 --passes 12 --lambda_d 5. --max_epoch 5000  --batch_size 8
 ```
+Or just 
 
 General Arguments:
 
@@ -117,3 +142,9 @@ Various 3D renderings showing the model's time evolution, along with additional 
 <img src="/outputs/renders/vm_render_86.gif" width="950">
 </div>
 
+## Multi-Graph framework
+The complete representation of the system be defined as the superposition of both graphs, forming the multi-graph $G$. Shown in the following example where each color represent a diferent set of graphs overlaped together in a rollout inference.
+
+</div>
+<img src="outputs\test_statistics\Test\Test_Unseen_ConnPlot.gif" width="950">
+</div>
