@@ -109,11 +109,11 @@ Various 3D renderings showing the model's time evolution, along with additional 
 <div>
 - Last frame comparison of the test 86th simulation, te colorbar represent the magnitude of the displacement in meters.
 </div>
-<img src="/resources/render.png" width="1250">
+<img src="/resources/render.png" width="1450">
 </div>
 <div>
 - Render of the same test simulation exposing in the color scale the Von Mises stress evolution.
 </div>
-<img src="/outputs/renders/vm_render_86.gif" width="650">
+<img src="/outputs/renders/vm_render_86.gif" width="950">
 </div>
 
