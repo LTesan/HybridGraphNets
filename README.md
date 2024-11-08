@@ -146,5 +146,5 @@ Various 3D renderings showing the model's time evolution, along with additional 
 The complete representation of the system be defined as the superposition of both graphs, forming the multi-graph $G$. Shown in the following example where each color represent a diferent set of graphs overlaped together in a rollout inference.
 
 </div>
-<img src="outputs\test_statistics\Test\Test_Unseen_ConnPlot.gif" width="950">
+<img src="outputs\test_statistics\Test\Test_Unseen_ConnPlot.gif" width="550">
 </div>
