@@ -131,7 +131,7 @@ def plot_3D(z_net, z_gt, n, save_dir = 'outputs/test_statistics/', name='Liver_a
     plt.close()
 
 def plot_connectivity_3D(z_net, z_gt, n, edge_index_list, save_dir='outputs/test_statistics/', name='Liver_actuator', idx=0, gt_flag=True):
-    T = z_net.size(0)-1
+    T = z_net.size(0) - 1
     
     # Unpack edge indices
     src, dest = edge_index_list[0].cpu().numpy()
@@ -143,55 +143,57 @@ def plot_connectivity_3D(z_net, z_gt, n, edge_index_list, save_dir='outputs/test
     ax1.set_xlabel('X'), ax1.set_ylabel('Y'), ax1.set_zlabel('Z')
     ax1.view_init(elev=20, azim=40)
     # Delete ticks
-    ax1.set_xticklabels([])
-    ax1.set_yticklabels([])
-    ax1.set_zticklabels([])
+    ax1.set_xticklabels([]), ax1.set_yticklabels([]), ax1.set_zticklabels([])
+    
     # Adjust ranges
     X, Y, Z = z_gt[:, :, 0].numpy(), z_gt[:, :, 1].numpy(), z_gt[:, :, 2].numpy()
-    max_range = np.array([X.max()-X.min(), Y.max()-Y.min(), Z.max()-Z.min()]).max()
-    Xb = 0.5*max_range*np.mgrid[-1:2:2, -1:2:2, -1:2:2][0].flatten() + 0.5*(X.max()+X.min())
-    Yb = 0.5*max_range*np.mgrid[-1:2:2, -1:2:2, -1:2:2][1].flatten() + 0.5*(Y.max()+Y.min())
-    Zb = 0.5*max_range*np.mgrid[-1:2:2, -1:2:2, -1:2:2][2].flatten() + 0.5*(Z.max()+Z.min())
+    max_range = np.array([X.max() - X.min(), Y.max() - Y.min(), Z.max() - Z.min()]).max()
+    Xb = 0.5 * max_range * np.mgrid[-1:2:2, -1:2:2, -1:2:2][0].flatten() + 0.5 * (X.max() + X.min())
+    Yb = 0.5 * max_range * np.mgrid[-1:2:2, -1:2:2, -1:2:2][1].flatten() + 0.5 * (Y.max() + Y.min())
+    Zb = 0.5 * max_range * np.mgrid[-1:2:2, -1:2:2, -1:2:2][2].flatten() + 0.5 * (Z.max() + Z.min())
 
     # Initial snapshot
-    if gt_flag: q1_net, q2_net, q3_net = z_gt[0, :, 0], z_gt[0, :, 1], z_gt[0, :, 2]
-    else: q1_net, q2_net, q3_net = z_net[0, :, 0], z_net[0, :, 1], z_net[0, :, 2]
+    if gt_flag:
+        q1_net, q2_net, q3_net = z_gt[0, :, 0], z_gt[0, :, 1], z_gt[0, :, 2]
+    else:
+        q1_net, q2_net, q3_net = z_net[0, :, 0], z_net[0, :, 1], z_net[0, :, 2]
 
     # Bounding box
     for xb, yb, zb in zip(Xb, Yb, Zb):
         ax1.plot([xb], [yb], [zb], 'w')
 
-    # Scatter points
-    s1 = ax1.scatter(q1_net[n[:, 0] == 1], q2_net[n[:, 0] == 1], q3_net[n[:, 0] == 1])
-    ax1.scatter(q1_net[n[:, 1] == 1], q2_net[n[:, 1] == 1], q3_net[n[:, 1] == 1], color='k')
+    # Scatter points for nodes
+    s1 = ax1.scatter(q1_net[n[:, 0] == 1], q2_net[n[:, 0] == 1], q3_net[n[:, 0] == 1], color='lightblue', s=50, alpha=0.4)
+    ax1.scatter(q1_net[n[:, 1] == 1], q2_net[n[:, 1] == 1], q3_net[n[:, 1] == 1], color='k', s=50)
 
-    # Generar colores únicos
+    # Highlight source nodes with larger and distinct color
+    ax1.scatter(q1_net[src], q2_net[src], q3_net[src], color='black', s=80, edgecolor='black', label='Source nodes')
+
+    # Generate unique colors
     colors = ['g', 'r', 'b']
 
-    # Asegúrate de que hay suficientes colores para los valores únicos en src
+    # Ensure there are enough colors for the unique src values
     unique_src = np.unique(src)
-    assert len(unique_src) <= len(colors), "Hay más valores únicos en 'src' que colores disponibles."
+    assert len(unique_src) <= len(colors), "There are more unique 'src' values than available colors."
 
-    # Crear un diccionario para mapear cada valor de src a un color
+    # Create a dictionary to map each src value to a color
     src_colors = {value: colors[idx] for idx, value in enumerate(unique_src)}
 
-    # Dibujar las conexiones
+    # Draw connectivity with opacity
     for i in range(len(src)):
         ax1.plot([q1_net[src[i]], q1_net[dest[i]]],
-                [q2_net[src[i]], q2_net[dest[i]]],
-                [q3_net[src[i]], q3_net[dest[i]]],
-                color=src_colors[src[i]], alpha=0.8)
+                 [q2_net[src[i]], q2_net[dest[i]]],
+                 [q3_net[src[i]], q3_net[dest[i]]],
+                 color=src_colors[src[i]], alpha=0.6)  # Adjust opacity here
 
     # Animation
     def animate(snap):
         ax1.cla()
 
         # Delete ticks
-        ax1.set_xticklabels([])
-        ax1.set_yticklabels([])
-        ax1.set_zticklabels([])
+        ax1.set_xticklabels([]), ax1.set_yticklabels([]), ax1.set_zticklabels([])
 
-        # Unpack edge indices
+        # Unpack edge indices for animation
         src, dest = edge_index_list[snap].cpu().numpy()
         
         # Set title and labels
@@ -202,19 +204,24 @@ def plot_connectivity_3D(z_net, z_gt, n, edge_index_list, save_dir='outputs/test
         for xb, yb, zb in zip(Xb, Yb, Zb):
             ax1.plot([xb], [yb], [zb], 'w')
 
-        # Scatter points
-        if gt_flag: q1_net, q2_net, q3_net = z_gt[snap, :, 0], z_gt[snap, :, 1], z_gt[snap, :, 2]
-        else: q1_net, q2_net, q3_net = z_net[snap, :, 0], z_net[snap, :, 1], z_net[snap, :, 2]
+        # Scatter points for nodes in animation
+        if gt_flag:
+            q1_net, q2_net, q3_net = z_gt[snap, :, 0], z_gt[snap, :, 1], z_gt[snap, :, 2]
+        else:
+            q1_net, q2_net, q3_net = z_net[snap, :, 0], z_net[snap, :, 1], z_net[snap, :, 2]
 
-        ax1.scatter(q1_net[n[:, 0] == 1], q2_net[n[:, 0] == 1], q3_net[n[:, 0] == 1], color='lightblue')
-        ax1.scatter(q1_net[n[:, 1] == 1], q2_net[n[:, 1] == 1], q3_net[n[:, 1] == 1], color='k')
+        ax1.scatter(q1_net[n[:, 0] == 1], q2_net[n[:, 0] == 1], q3_net[n[:, 0] == 1], color='lightblue', s=50, alpha=0.4)
+        ax1.scatter(q1_net[n[:, 1] == 1], q2_net[n[:, 1] == 1], q3_net[n[:, 1] == 1], color='k', s=50)
 
-        # Draw connectivity
+        # Highlight source nodes in animation
+        ax1.scatter(q1_net[src], q2_net[src], q3_net[src], color='yellow', s=80, edgecolor='black', label='Source nodes')
+
+        # Draw connectivity with opacity in animation
         for i in range(len(src)):
             ax1.plot([q1_net[src[i]], q1_net[dest[i]]],
                      [q2_net[src[i]], q2_net[dest[i]]],
                      [q3_net[src[i]], q3_net[dest[i]]],
-                     color=src_colors[src[i]], alpha=0.8)
+                     color=src_colors[src[i]], alpha=0.5)
 
         return fig,
 

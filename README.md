@@ -159,6 +159,8 @@ The complete representation of the system be defined as the superposition of bot
 
 ## Relative and alsolute error for inference on extra dataset
 
+In this section, we present two relative error metrics: one based on the L2 norm and the other on the infinity norm, applied to the three state vectors. Additionally, the absolute error is represented as the root mean square error (RMSE). In all cases, all snapshots from each test subset are considered together.
+
 | Error Type                        | Variable | Error Value   |
 |-----------------------------------|----------|---------------|
 | **Mean L2 relative error**        | q        | 0.001267      |
