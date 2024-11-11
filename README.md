@@ -169,6 +169,6 @@ In this section, we present two relative error metrics: one based on the L2 norm
 | **Mean inf relative error**       | q        | 0.001038      |
 |                                   | v        | 0.042329      |
 |                                   | sigma    | 0.019734      |
-| **Root mean square error**        | q        | 0.000305      |
-|                                   | v        | 0.000636      |
-|                                   | sigma    | 1399.189331   |
+| **Root mean square error**        | q(m)     | 0.000305      |
+|                                   | v(m/s)   | 0.000636      |
+|                                   | sigma(Pa)| 1399.189331   |
