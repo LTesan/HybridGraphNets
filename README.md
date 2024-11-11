@@ -35,7 +35,7 @@ References:
 - Tobias Pfaff, Meire Fortunato, Alvaro Sanchez-Gonzalez, and Peter W. Battaglia. "[Learning mesh-based simulation
 with graph networks, 2021.](https://arxiv.org/abs/2010.03409)."
 - Alicia Tierz, Iciar Alfaro, David González, Francisco Chinesta, and Elías Cueto. "[Graph neural networks informed
-locally by thermodynamics. arXiv preprint arXiv:2405.13093, May 2024](https://arxiv.org/abs/2405.13093)."
+locally by thermodynamics](https://arxiv.org/abs/2405.13093)." arXiv preprint arXiv:2405.13093, May 2024
 
 ## Learning procedure
 
