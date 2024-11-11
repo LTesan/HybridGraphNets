@@ -37,6 +37,14 @@ with graph networks, 2021.
 - Alicia Tierz, Iciar Alfaro, David González, Francisco Chinesta, and Elías Cueto. Graph neural networks informed
 locally by thermodynamics. arXiv preprint arXiv:2405.13093, May 2024.
 
+## Learning procedure
+
+The master database contains 190 simulations across five geometries, with node densities ranging from 680 to 460 per mesh, fixed on the visceral face. Data normalization is performed by standardizing all state variables, which consist of a 12-element vector: three position dimensions, three velocity dimensions, and six components of the Cauchy tensor.
+
+Of the five geometries, four are used for training, resulting in 760 simulations, each with 20 time steps. Each simulation applies nodal displacements to a selection of 1 to 3 nodes, with traction or compression varying between 0.5 cm and 2.5 cm. For validation, 20\% of the simulations from the remaining geometry are used. The primary testing dataset is based on the 190 total simulations of this geometry, including those also used for validation to avoid biases.
+
+Another argument that complements the high response times of this network is its robustness against untrained geometries and meshes, making it highly suitable for precision medicine contexts. For this task, we have complemented the main test database (referred to as **Extra** for this context, as it is the most restrictive) with a set of 190 train simulations, allowing us to compare their performance in a rollout (denoted as **Train**). Additionally, we included another 33 new and untrained simulations within an already trained geometry, designated as **Test** , which functions as an intermediate point between these two testing sets.
+
 ## Setting it up
 
 First, clone the project.
@@ -148,3 +156,17 @@ The complete representation of the system be defined as the superposition of bot
 </div>
 <img src="outputs\test_statistics\Test\Test_Unseen_ConnPlot.gif" width="550">
 </div>
+
+## Relative and alsolute error for inference on extra dataset
+
+| Error Type                        | Variable | Error Value   |
+|-----------------------------------|----------|---------------|
+| **Mean L2 relative error**        | q        | 0.001267      |
+|                                   | v        | 0.202649      |
+|                                   | sigma    | 0.366082      |
+| **Mean inf relative error**       | q        | 0.001038      |
+|                                   | v        | 0.042329      |
+|                                   | sigma    | 0.019734      |
+| **Root mean square error**        | q        | 0.000305      |
+|                                   | v        | 0.000636      |
+|                                   | sigma    | 1399.189331   |
