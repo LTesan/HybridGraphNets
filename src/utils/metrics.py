@@ -112,24 +112,6 @@ def rmse(x, y):
 
     return np.sqrt(mse)
 
-def rmse(x, y):
-    """
-    Calculates the Root Mean Squared Error (RMSE) between two arrays x and y.
-
-    Parameters:
-    x (array-like): Array of true values.
-    y (array-like): Array of predicted values.
-
-    Returns:
-    float: The Root Mean Squared Error (RMSE) between x and y.
-    """
-    # Calculate squared error
-    se = (x - y) ** 2
-    # Calculate mean squared error
-    mse = se.mean()
-
-    return np.sqrt(mse)
-
 def mse_l2(data_ground_truth, data_predicted):
     """
     Calculate the Mean Relative Error normalized l2 norm.
