@@ -28,7 +28,7 @@ Here, you'll find a comprehensive collection of code, models, renders and resour
 
 For more information, please refer to the following:
 
-- Tesán, Lucas, González, David and Cueto, Elías.
+- Tesán Lucas, González David, Martins Pedro and Cueto Elías.
 
 References:
 - Hernández, Quercus and Badías, Alberto and Chinesta, Francisco and Cueto, Elías. "[Thermodynamics-informed graph neural networks](https://ieeexplore.ieee.org/document/9787069)." IEEE Transactions on Artificial Intelligence (2022).
@@ -43,7 +43,7 @@ The master database contains 190 simulations across five geometries, with node d
 
 Of the five geometries, four are used for training, resulting in 760 simulations, each with 20 time steps. Each simulation applies nodal displacements to a selection of 1 to 3 nodes, with traction or compression varying between 0.5 cm and 2.5 cm. For validation, 20\% of the simulations from the remaining geometry are used. The primary testing dataset is based on the 190 total simulations of this geometry, including those also used for validation to avoid biases.
 
-Another argument that complements the high response times of this network is its robustness against untrained geometries and meshes, making it highly suitable for precision medicine contexts. For this task, we have complemented the main test database (referred to as **Extra** for this context, as it is the most restrictive) with a set of 190 train simulations, allowing us to compare their performance in a rollout (denoted as **Train**). Additionally, we included another 33 new and untrained simulations within an already trained geometry, designated as **Test** , which functions as an intermediate point between these two testing sets.
+Another argument that complements the high response times of this network is its robustness against untrained geometries and meshes, making it highly suitable for precision medicine contexts. For this task, we have complemented the main test database (referred to as **test** for this context, as it is the most restrictive) with a set of 190 train simulations, allowing us to compare their performance in a rollout (denoted as **Train**). Additionally, we included another 33 new and untrained simulations within an already trained geometry, designated as **extra** , which functions as an intermediate point between these two testing sets.
 
 ## Setting it up
 
@@ -157,7 +157,7 @@ The complete representation of the system be defined as the superposition of bot
 <img src="outputs\test_statistics\Test\Test_Unseen_ConnPlot.gif" width="550">
 </div>
 
-## Relative and alsolute error for inference on extra dataset
+## Relative and alsolute error for inference on test dataset
 
 In this section, we present two relative error metrics: one based on the L2 norm and the other on the infinity norm, applied to the three state vectors. Additionally, the absolute error is represented as the root mean square error (RMSE). In all cases, all snapshots from each test subset are considered together.
 
