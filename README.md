@@ -18,7 +18,7 @@ This GitHub repository hosts a integration of biomecanical thermodynamics with g
 
 We introduce an advanced deep learning approach for forecasting the time-based changes in a dissipative dynamic system. Our method leverages geometric and physic biases to enhance accuracy and adaptability in our predictive model. To incorporate geometric insights, we employ Graph Neural Networks, enabling a non-Euclidean multi-graph framework with permutation invariant node and edge updates. Additionally, we enforce a thermodynamic bias by training the model to recognize the GENERIC structure of the problem, extending beyond the traditional Hamiltonian formalism to predict a broader range of non-conservative dynamics.
 
-The database consists of 760 simulations across 4 different geometries and meshes, ranging between 450 and 700 nodes. For testing purposes, three additional datasets are defined. The primary one, labeled **extra**, represents 190 simulations in an untrained geometry. The **test** set extends this inference to 33 simulations within one of the previously seen geometries. Lastly, the **train** set is a partition of the training data used to compare performance during the rollout.
+The database consists of 760 simulations across 4 different geometries and meshes, ranging between 450 and 700 nodes. For testing purposes, three additional datasets are defined. The primary one, labeled **test**, represents 190 simulations in an untrained geometry.
 
 <div align="center">
 <img src="/resources/Gen.png" width="850">
