@@ -13,7 +13,7 @@
 This GitHub repository hosts a integration of biomecanical thermodynamics with graph neural networks (GNNs) to power a cutting-edge hepatic digital twin. Our project represents a fusion of computational biology, thermodynamics principles, and advanced machine learning techniques to simulate and understand the intricate dynamics of an hepatic visco-hyperelastic tissue.
 
 <div align="center">
-<img src="/resources/liverModel.png" width="750">
+<img src="/resources/liverModel.png" width="1650">
 </div>
 
 We introduce an advanced deep learning approach for forecasting the time-based changes in a dissipative dynamic system. Our method leverages geometric and physic biases to enhance accuracy and adaptability in our predictive model. To incorporate geometric insights, we employ Graph Neural Networks, enabling a non-Euclidean multi-graph framework with permutation invariant node and edge updates. Additionally, we enforce a thermodynamic bias by training the model to recognize the GENERIC structure of the problem, extending beyond the traditional Hamiltonian formalism to predict a broader range of non-conservative dynamics.
