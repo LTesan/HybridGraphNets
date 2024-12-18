@@ -7,8 +7,8 @@ class GraphDataModule(LightningDataModule):
     def __init__(self, args, batch_size=8, val_split=0.2, num_workers=4):
         super().__init__()
         self.args = args
-        self.data_dir_train = 'data\\train\database_liver'
-        self.data_dir_test = 'data\\test\test'
+        self.data_dir_train = 'data\\train\\database_liver'
+        self.data_dir_test = 'data\\test\\test'
         self.batch_size = batch_size
         self.val_split = val_split
         self.num_workers = num_workers
