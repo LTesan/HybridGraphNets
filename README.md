@@ -5,7 +5,7 @@
 
 [![Project page](https://img.shields.io/badge/-Project%20page-green)](https://amb.unizar.es/people/lucas/tesan/)
 [![Linkedln](https://img.shields.io/badge/-Linkdln%20page-blue)](https://www.linkedin.com/in/lucas-tesan-ingbiozar/)
-[![Preprint](https://img.shields.io/badge/-Linkdln%20page-red)](https://arxiv.org/abs/2412.12034)
+[![Paper](https://img.shields.io/badge/-Linkdln%20page-red)](https://arxiv.org/abs/2412.12034)
 
 
 </div>
