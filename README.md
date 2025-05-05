@@ -3,7 +3,7 @@
   
 # Thermodynamics-informed graph neural networks for Nodal Imposed Displacements
 
-[![Project page](https://img.shields.io/badge/-Project%20page-green)](https://amb.unizar.es/people/lucas/tesan/)
+[![Project page](https://img.shields.io/badge/-Project%20page-green)](https://amb.unizar.es/people/lucas-tesan/))
 [![Linkedln](https://img.shields.io/badge/-Linkdln%20page-blue)](https://www.linkedin.com/in/lucas-tesan-ingbiozar/)
 [![Paper](https://img.shields.io/badge/-Preprint-red)](https://arxiv.org/abs/2412.12034)
 
