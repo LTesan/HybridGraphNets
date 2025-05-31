@@ -25,7 +25,7 @@ class GraphDataset(Dataset):
             self.data = []
             for file in self.data_files:
                 file_path = os.path.join(self.data_dir, file)
-                simulations = torch.load(file_path)
+                simulations = torch.load(file_path, weights_only=False)
                 self.data.append(simulations)
         
         # Load and aggregate all simulations from .pt files
@@ -33,7 +33,7 @@ class GraphDataset(Dataset):
             self.data = []
             for file in self.data_files:
                 file_path = os.path.join(self.data_dir, file)
-                simulations = torch.load(file_path)
+                simulations = torch.load(file_path, weights_only=False)
                 self.data.extend(simulations)
 
     def __len__(self):
