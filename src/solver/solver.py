@@ -97,10 +97,10 @@ class Solver:
             devices=[0],  # List of GPU devices to use
             max_epochs=self.epochs,  # Maximum number of epochs to train
             logger=self.logger,  # Logger for experiment tracking
-            accelerator="cuda" if torch.cuda.is_available() else "cpu",  # Use GPU if available, otherwise CPU
+            accelerator="mps" if torch.backends.mps.is_available() else ("cuda" if torch.cuda.is_available() else "cpu"),  # Use MPS if available, otherwise CUDA or CPU
             callbacks=[checkpoint_callback, val_rollout_callback, lr_monitor],  # List of callbacks to use during training
         )
-        
+
     def _init_net(self):
         """
         Initializes the neural network model.
