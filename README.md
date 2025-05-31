@@ -131,7 +131,7 @@ Training Arguments:
 
 # Metrics and evaluation
 ## Inference performance
-Relative error evaluatioón as boxplot for every pseudo-time during inference on test set:
+Relative error evaluation as boxplot for every pseudo-time during inference on test set:
 
 <div>
 <img src="/outputs/test_statistics/Test/Test_Unseen_boxplot.png" width="250">
