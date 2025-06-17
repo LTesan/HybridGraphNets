@@ -53,7 +53,7 @@ First, clone the project.
 ```bash
 # clone project
 git clone https://github.com/LucasUnizar/HybridGraphNets.git
-cd MeshGraps_NID
+cd HybridGraphNets
 ```
 
 Then, install the needed dependencies. The code is implemented in [Pytorch](https://pytorch.org). _Note that this has been tested using Python 3.9_.
