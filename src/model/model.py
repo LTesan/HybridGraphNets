@@ -111,7 +111,6 @@ class TIGNN(pl.LightningModule):
         self.log('val_loss_deg_E', loss_deg_E, on_epoch=True, on_step=False, batch_size=self.batch_size)
         self.log('val_loss_deg_S', loss_deg_S, on_epoch=True, on_step=False, batch_size=self.batch_size)
         self.log('val_data_loss', loss, on_epoch=True, on_step=False, batch_size=self.batch_size)
-        return total_loss
     
     def test_step(self, batch, batch_idx):
         # Define the test step (forward pass and loss calculation)

@@ -15,10 +15,15 @@ class GraphDataset(Dataset):
                 on a sample.
         """
         self.args = args
+        ratio = args.ratio
         self.rollout = rollout
         self.data_dir = data_dir
         self.att_radius = args.att_radius
         self.data_files = sorted([f for f in os.listdir(data_dir) if f.endswith('.pt')])
+        # If ratio is specified, select a subset of files
+        if ratio < 1.0:
+            num_files = int(len(self.data_files) * ratio)
+            self.data_files = self.data_files[:num_files]
 
         # Loads hole sims from .pt files
         if self.rollout:
