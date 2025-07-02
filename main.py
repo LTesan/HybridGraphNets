@@ -31,6 +31,7 @@ def parse_args():
     parser.add_argument("--batch_size", type=int, default=8, help="Batch size for training")
     parser.add_argument("--lambda_d", type=float, default=5., help="Lambda value for loss regularization")
     parser.add_argument("--max_epoch", type=int, default=6000, help="Maximum number of epochs")
+    parser.add_argument("--ratio", type=float, default=1.0, help="Train/test split ratio")
     parser.add_argument("--pretrained", action="store_true", help="Flag to use pretrained model")
     parser.add_argument("--plot_rollout", action="store_true", help="Flag to plot rollout results")
     parser.add_argument("--node", type=int, default=0, help="Node index for plotting rollout results")
