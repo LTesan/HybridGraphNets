@@ -137,8 +137,7 @@ class TIGNN(pl.LightningModule):
                 factor=0.5, 
                 patience=100, 
                 threshold=0.0001, 
-                min_lr=1e-8, 
-                verbose=True
+                min_lr=1e-8
             ),
             'monitor': 'train_loss',  # Monitor the validation loss
             'interval': 'epoch',
