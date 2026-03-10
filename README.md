@@ -1,4 +1,4 @@
-
+º
 <div align="center">  
   
 # Thermodynamics-informed graph neural networks for Nodal Imposed Displacements
