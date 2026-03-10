@@ -6,7 +6,7 @@
 [![Project page](https://img.shields.io/badge/-Project%20page-green)](https://amb.unizar.es/people/lucas-tesan/)
 [![Linkedln](https://img.shields.io/badge/-Linkdln%20page-blue)](https://www.linkedin.com/in/lucas-tesan-ingbiozar/)
 [![Paper](https://img.shields.io/badge/-Paper-red)](https://link.springer.com/article/10.1007/s00466-025-02633-1)
-[![DOI](https://img.shields.io/badge/-Zenodo-royalblue)](https://doi.org/10.5281/zenodo.18941290)
+[![DOI](https://img.shields.io/badge/DOI-Zenodo-0969da)](https://doi.org/10.5281/zenodo.18941290)
 
 
 </div>
